@@ -1,33 +1,81 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import MenuIcon from './icons/MenuIcon';
+import XIcon from './icons/XIcon';
 
-interface HeaderProps {
-    name: string;
-    slogan: string;
-    imageUrl: string;
-    bio: string;
-}
+const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick: () => void }> = ({ href, children, onClick }) => (
+  <a
+    href={href}
+    onClick={onClick}
+    className="block md:inline-block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-colors duration-300"
+  >
+    {children}
+  </a>
+);
 
-export const Header: React.FC<HeaderProps> = ({ name, slogan, imageUrl, bio }) => {
+const Header: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const navLinks = [
+    { href: '#home', label: 'Home' },
+    { href: '#achievements', label: 'What I\'ve Done' },
+    { href: '#plan', label: 'My Plan' },
+    { href: '#principles', label: 'Principles' },
+    { href: '#contact', label: 'Contact' },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <header className="bg-navy-900 text-white pt-20 pb-16">
-      <div className="container mx-auto max-w-5xl px-4">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/3 text-center">
-            <img 
-              src={imageUrl} 
-              alt={name}
-              className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mx-auto border-4 border-navy-700 shadow-lg"
-            />
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          <div className="flex-shrink-0">
+            <a href="#home" className="text-2xl font-bold text-slate-800 hover:text-sky-600 transition-colors">
+              Kevin Gilbert
+            </a>
           </div>
-          <div className="md:w-2/3">
-            <h1 className="text-4xl md:text-5xl font-bold text-white text-center md:text-left">{name}</h1>
-            <p className="text-xl text-blue-200 mt-2 mb-6 text-center md:text-left">{slogan}</p>
-            <p className="text-base text-blue-100 leading-relaxed">
-              {bio}
-            </p>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navLinks.map((link) => (
+                <NavLink key={link.href} href={link.href} onClick={closeMenu}>{link.label}</NavLink>
+              ))}
+            </div>
+          </div>
+          <div className="-mr-2 flex md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="bg-sky-50 inline-flex items-center justify-center p-2 rounded-md text-sky-600 hover:text-sky-700 hover:bg-sky-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-sky-100 focus:ring-sky-500"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? <XIcon /> : <MenuIcon />}
+            </button>
           </div>
         </div>
       </div>
+
+      {isOpen && (
+        <div className="md:hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+            {navLinks.map((link) => (
+              <NavLink key={link.href} href={link.href} onClick={closeMenu}>{link.label}</NavLink>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
+
+export default Header;

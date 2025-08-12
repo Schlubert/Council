@@ -1,4 +1,5 @@
 {
-  "name": "Political Candidate Profile Page",
-  "description": "A responsive single-page application for a fictional political candidate, showcasing their biography, policy stances, endorsements, photo gallery, and contact information. Built with React and Tailwind CSS."
+  "name": "Copy of Kevin Gilbert for Dunedin City Council",
+  "description": "A campaign website for Kevin Gilbert, a candidate for the Dunedin City Council, outlining his achievements, future plans, and core principles.",
+  "requestFramePermissions": []
 }

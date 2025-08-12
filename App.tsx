@@ -1,32 +1,24 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { PolicySection } from './components/PolicySection';
-import { GallerySection } from './components/GallerySection';
-import { ReferenceSection } from './components/ReferenceSection';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { CANDIDATE_DATA, POLICIES, REFERENCES, GALLERY_IMAGES, CONTACT_INFO } from './constants';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Accomplishments from './components/Accomplishments';
+import Plans from './components/Plans';
+import Principles from './components/Principles';
+import Footer from './components/Footer';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="bg-slate-100 text-slate-800 font-sans leading-normal tracking-normal">
-      <Header 
-        name={CANDIDATE_DATA.name}
-        slogan={CANDIDATE_DATA.slogan}
-        imageUrl={CANDIDATE_DATA.imageUrl}
-        bio={CANDIDATE_DATA.bio}
-      />
-
-      <main className="container mx-auto max-w-5xl py-8 px-4">
-        <PolicySection policies={POLICIES} />
-        <GallerySection images={GALLERY_IMAGES} />
-        <ReferenceSection references={REFERENCES} />
-        <ContactSection contactInfo={CONTACT_INFO} />
+    <div className="bg-slate-50 text-slate-800">
+      <Header />
+      <main>
+        <Hero />
+        <Accomplishments />
+        <Plans />
+        <Principles />
       </main>
-
-      <Footer name={CANDIDATE_DATA.name} />
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;
