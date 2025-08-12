@@ -24,7 +24,7 @@ const Accomplishments: React.FC = () => {
     <section id="achievements" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">What I've Done for Dunedin</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">What I have Done for Dunedin</h2>
           <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
             My time on the council has been dedicated to delivering tangible results for our community.
           </p>

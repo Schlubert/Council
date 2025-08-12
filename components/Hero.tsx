@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-sm">
                 <div className="absolute -inset-2 bg-gradient-to-br from-amber-400 to-sky-600 rounded-full blur-xl opacity-60"></div>
                 <img 
-                    src="/fs/e1de1c4714f3b764bb7b46960d704af520c1590f.jpeg" 
+                    src="./images/power.jpg" 
                     alt="Kevin Gilbert"
                     className="relative w-full h-auto rounded-full shadow-2xl object-cover border-8 border-white"
                 />
