@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="mt-10 flex justify-center space-x-6">
           <SocialLink href="#" aria-label="Facebook"><FacebookIcon /></SocialLink>
-          <SocialLink href="#" aria-label="LinkedIn"><LinkedInIcon /></SocialLink>
+          <SocialLink href="http://www.linkedin.com/in/kevingilbertnzl" aria-label="LinkedIn"><LinkedInIcon /></SocialLink>
           <SocialLink href="#" aria-label="Instagram"><InstagramIcon /></SocialLink>
         </div>
         <div className="mt-10 pt-8 border-t border-slate-700 text-center text-sm text-slate-500">

@@ -18,8 +18,8 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { href: '#home', label: 'Home' },
-    { href: '#achievements', label: 'What I\'ve Done' },
-    { href: '#plan', label: 'My Plan' },
+    { href: '#achievements', label: 'What I\'ve Done (so far)' },
+    { href: '#vision', label: 'My Vision' },
     { href: '#principles', label: 'Principles' },
     { href: '#contact', label: 'Contact' },
   ];

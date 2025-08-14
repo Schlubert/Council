@@ -3,11 +3,11 @@ import React from 'react';
 const principles = [
   {
     name: "A Balanced Approach",
-    description: "I believe in finding moderate, common-sense solutions that serve the entire community, not just narrow interests. Progress requires collaboration and understanding all viewpoints.",
+    description: "I believe in finding, common-sense solutions that serve the entire community. Progress requires collaboration and understanding all viewpoints. With no political party affiliation, I focus on what works best for Dunedin rather than where it comes from.",
   },
   {
     name: "Careful Use of Public Funds",
-    description: "Your rates are hard-earned. I am committed to rigorous oversight of council spending, ensuring every dollar is used efficiently and effectively to deliver core services.",
+    description: "Your rates are hard-earned. I am committed to rigorous oversight of council spending, ensuring every dollar is used efficiently and effectively to deliver core services while maintaining an eye on the city's future needs",
   },
   {
     name: "Long-Term Perspective",

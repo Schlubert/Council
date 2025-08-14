@@ -13,10 +13,7 @@ const Hero: React.FC = () => {
               I'm Kevin Gilbert, and I'm committed to serving our community with a balanced, forward-thinking approach. Let's work together to build a vibrant, sustainable, and prosperous Dunedin for everyone.
             </p>
             <div className="mt-8 flex gap-4 justify-center md:justify-start">
-              <a href="#plan" className="inline-block bg-sky-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-700 transition-transform transform hover:scale-105 shadow-lg">
-                See My Plan
-              </a>
-              <a href="#contact" className="inline-block bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-lg hover:bg-slate-300 transition-transform transform hover:scale-105 shadow-lg">
+              <a href="#contact" className="inline-block bg-sky-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-700 transition-transform transform hover:scale-105 shadow-lg">
                 Get In Touch
               </a>
             </div>
@@ -25,7 +22,7 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-sm">
                 <div className="absolute -inset-2 bg-gradient-to-br from-amber-400 to-sky-600 rounded-full blur-xl opacity-60"></div>
                 <img 
-                    src="./images/power.jpg" 
+                    src="./images/Kevin Headshot lght blue.png" 
                     alt="Kevin Gilbert"
                     className="relative w-full h-auto rounded-full shadow-2xl object-cover border-8 border-white"
                 />
