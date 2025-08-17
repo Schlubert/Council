@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="mt-10 flex justify-center space-x-6">
-          <SocialLink href="#" aria-label="Facebook"><FacebookIcon /></SocialLink>
+          <SocialLink href="https://www.facebook.com/profile.php?id=61579643667332" aria-label="Facebook"><FacebookIcon /></SocialLink>
           <SocialLink href="http://www.linkedin.com/in/kevingilbertnzl" aria-label="LinkedIn"><LinkedInIcon /></SocialLink>
           <SocialLink href="#" aria-label="Instagram"><InstagramIcon /></SocialLink>
         </div>
