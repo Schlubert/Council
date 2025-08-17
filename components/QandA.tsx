@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-type Principle = {
-  name: string;
-  description: React.ReactNode; // ✅ allows <p>, <ul>, <div>, etc.
+type Faq = {
+  question: string;
+  answer: React.ReactNode;
 };
 
-const principles: Principle[] = [
+const faqs: Faq[] = [
   {
-    name: "What is your vision for making it easier, safer and more enjoyable to walk, bike, and use public transport in Dunedin?",
-    description: (
+    question: "What is your vision for making it easier, safer and more enjoyable to walk, bike, and use public transport in Dunedin?",
+    answer: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
           Connecting the various sections of the cycleways/shared paths.
@@ -18,7 +19,7 @@ const principles: Principle[] = [
         <li>
           Having experienced, several times, what many cyclists have – far too
           close encounters with vehicles disregarding road rules and traffic
-          lights – I would like to see the use of red-light cameras. I don’t
+          lights – I would like to see the use of red-light cameras. I don't
           believe that we can entirely separate cycles from cars, but we need to
           re-educate some drivers on the reasons for road rules.
         </li>
@@ -42,8 +43,8 @@ const principles: Principle[] = [
     ),
   },
   {
-    name: "In terms of walking and cycling infrastructure, what are your top priorities for improvements in the next council term?",
-    description: (
+    question: "In terms of walking and cycling infrastructure, what are your top priorities for improvements in the next council term?",
+    answer: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
          Priority #1 for me is to make the crossing at the corner of Portsmouth Drive and Shore St safe. We often take our lives in our hands when we cross there and that needs to change.
@@ -56,8 +57,8 @@ const principles: Principle[] = [
     ),
   },
   {
-    name: "What is your vision on traffic-calmed streets, George Street, the Octagon, and other public spaces (especially in terms of accessibility)?",
-    description: (
+    question: "What is your vision on traffic-calmed streets, George Street, the Octagon, and other public spaces (especially in terms of accessibility)?",
+    answer: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
         As part of a wider refresh of the heart of our city, I would like to see the lower Octagon closed to traffic (down as far as, but not including, Bath st). I believe this would help bring some vibrancy to the area, help local businesses, and allow for more activities and enjoyment of the area.
@@ -72,10 +73,10 @@ const principles: Principle[] = [
     ),
   },  
   {
-    name: "What is the biggest opportunity on the horizon for Dunedin?",
-    description: (
+    question: "What is the biggest opportunity on the horizon for Dunedin?",
+    answer: (
       <>
-        <p>We need to back ourselves in actions not just in words. We’ve started, now we need to build on that.</p>
+        <p>We need to back ourselves in actions not just in words. We've started, now we need to build on that.</p>
         <ul className="list-disc pl-5 space-y-2">
           <li>Being in front of the powers in Wellington rather than simply accepting their decisions.</li>
           <li>Promoting ourselves proudly on the national and international stage rather than a campaign of self-deprecation.</li>
@@ -87,8 +88,8 @@ const principles: Principle[] = [
     ),
   },
     {
-    name: "What are your top priorities for Dunedin in the next three years?",
-    description: (
+    question: "What are your top priorities for Dunedin in the next three years?",
+    answer: (
       <ul className="list-disc pl-5 space-y-2">
         <li>
         Fiscal Responsibility – spend as little as we can but where we have to.
@@ -115,31 +116,37 @@ const QandA: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-            Answering some questions          </h2>
+            Answering Some Questions          </h2>
           <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
             I get asked lots of questions, the answers to which often get spread over the internet. So I thought it might be helpful to have some of them in one place. I'll be updating the list as I get more questions, so if you have one, please ask! 
           </p>
         </div>
 
-        {/* 3-column responsive grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {principles.map((principle, index) => (
+        {/* Single column layout */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqs.map((principle, index) => (
             <div
               key={index}
-              className="border border-slate-200 rounded-lg shadow-sm"
+              className="border border-slate-200 rounded-lg shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md"
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center p-4 text-left text-xl font-semibold text-sky-600 focus:outline-none"
+                className="w-full flex justify-between items-center p-6 text-left bg-slate-50 hover:bg-slate-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-inset"
               >
-                {principle.name}
-                <span className="text-slate-500">
-                  {openIndex === index ? "−" : "+"}
+                <span className="text-lg font-semibold text-sky-600 pr-4">
+                  {principle.question}
                 </span>
+                <div className="flex-shrink-0">
+                  {openIndex === index ? (
+                    <ChevronUp className="h-5 w-5 text-sky-600" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-slate-500" />
+                  )}
+                </div>
               </button>
               {openIndex === index && (
-                <div className="p-4 pt-0 text-slate-600">
-                  {principle.description}
+                <div className="p-6 pt-4 bg-white text-slate-600 border-t border-slate-100 animate-in slide-in-from-top-2 duration-200">
+                  {principle.answer}
                 </div>
               )}
             </div>
