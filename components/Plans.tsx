@@ -12,7 +12,7 @@ const plansTowards = [
   "A more transparent and accountable council.",
   "Strengthening our local economy and creating job opportunities.",
   "A future-proofed infrastructure that serves our future needs.",
-  "???????."
+  "Challenging our approach to waste minimisation opportunities – thinking big and acting locally as well as engaging with new ideas and technologies"
 ];
 
 const PlanColumn: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (

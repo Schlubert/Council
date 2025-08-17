@@ -12,15 +12,16 @@ const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick: () =
   </a>
 );
 
-const Header: React.FC = () => {
+const Header: React.FC = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
     { href: '#home', label: 'Home' },
-    { href: '#achievements', label: 'What I\'ve Done (so far)' },
+    { href: '#achievements', label: 'Who am I?' },
     { href: '#vision', label: 'My Vision' },
     { href: '#principles', label: 'Principles' },
+    { href: '#faqs', label: 'Q&A' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -32,7 +33,14 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = (label: string) => {
+    setIsOpen(false);
+    if (label === 'Q&A') {
+      props.setShowFAQ(true);
+    } else {
+      props.setShowFAQ(false);
+    }
+  }
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
@@ -46,7 +54,7 @@ const Header: React.FC = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navLinks.map((link) => (
-                <NavLink key={link.href} href={link.href} onClick={closeMenu}>{link.label}</NavLink>
+                <NavLink key={link.href} href={link.href} onClick={() => closeMenu(link.label)}>{link.label}</NavLink>
               ))}
             </div>
           </div>
