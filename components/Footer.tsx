@@ -25,7 +25,6 @@ const Footer: React.FC = () => {
         <div className="mt-10 flex justify-center space-x-6">
           <SocialLink href="https://www.facebook.com/profile.php?id=61579643667332" aria-label="Facebook"><FacebookIcon /></SocialLink>
           <SocialLink href="http://www.linkedin.com/in/kevingilbertnzl" aria-label="LinkedIn"><LinkedInIcon /></SocialLink>
-          <SocialLink href="#" aria-label="Instagram"><InstagramIcon /></SocialLink>
         </div>
         <div className="mt-10 pt-8 border-t border-slate-700 text-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} Authorized by the campaign for Kevin Gilbert, Dunedin.</p>
