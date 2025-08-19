@@ -7,7 +7,17 @@ type Faq = {
 };
 
 const faqs: Faq[] = [
-  {
+    {
+  question: "15 minutes (just under) of questions by Dr Barb from the Otago Institute for the Arts and Sciences.",
+  answer: (
+  <>
+  <p>As part of recording  the OI POdcast on OAR FM (105.4FM), Dr Barb invited all candidates to pop in and answer the same set of questions. I had a blast despite a few questions being harder than the short answer format would allow. Here it is if you want to have a listen. You can also search through the interviews of those others that chose to take part. </p>
+  <a href="https://accessmedia.nz/player?EID=fee5477e-6ae1-4235-9bf5-a34cea7466d0&audioOnlyMode=true" className="text-sky-600 hover:underline">
+    Listen to the interview </a>
+  </>
+  ),
+},
+{
     question: "What is your vision for making it easier, safer and more enjoyable to walk, bike, and use public transport in Dunedin?",
     answer: (
       <ul className="list-disc pl-5 space-y-2">
@@ -102,6 +112,7 @@ const faqs: Faq[] = [
       </ul>
     ),
   },
+
 ];
 
 const QandA: React.FC = () => {
